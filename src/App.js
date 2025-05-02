@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { JobProvider } from './context/JobContext';
+// import { GlobalStyles } from './styles/globalStyles';
+import Home from './pages/Home';
+import DashboardPage from './pages/DashboardPage';
+import JobsPage from './pages/JobsPage';
+import ProfilePage from './pages/ProfilePage';
+import Navbar from './components/Navbar';
+import { initializeMockData } from './utils/storage';
+import PrivateRoute from './components/Auth/PrivateRoute';
 
 function App() {
+  // Initialize mock data if not present
+  initializeMockData();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthProvider>
+        <JobProvider>
+          {/* <GlobalStyles /> */}
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow p-4">
+              <div className="container">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/register" element={<Home />} />
+                  <Route path="/dashboard/*" element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+                  <Route path="/jobs/*" element={<PrivateRoute><JobsPage /></PrivateRoute>} />
+                  <Route path="/profile/*" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+              </div>
+            </main>
+          </div>
+        </JobProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 
