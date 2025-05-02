@@ -1,140 +1,272 @@
+/* Main Card Container */
 .job-card {
-  background-color: #fff;
+  position: relative;
+  background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 20px;
 }
 
+/* Card Link Wrapper */
+.job-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding-bottom: 60px; /* Space for action buttons */
+}
+
+/* Card Hover Effects */
 .job-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
+/* Header Section */
 .job-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
-  border-bottom: 1px solid #eee;
+  padding: 18px 18px 8px;
+  position: relative;
 }
 
+/* Logo and Title Container */
+.company-logo-and-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Company Logo */
 .company-logo {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #f0f0f0;
 }
 
-.company-info {
+/* Title Wrapper */
+.job-title-wrapper {
+  flex: 1;
+  min-width: 0; /* Prevents overflow */
 }
 
+/* Job Title */
 .job-title {
   font-size: 1.1rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 0.2rem;
+  font-weight: 600;
+  color: #333333;
+  margin: 25px 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Company Name Link */
 .company-name-link {
-  color: #007bff;
+  display: block;
+  color: #2563eb;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  margin-top: 25px;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
 }
 
 .company-name-link:hover {
-  color: #0056b3;
+  color: #1d4ed8;
   text-decoration: underline;
 }
 
-.job-description {
-  padding: 1.5rem;
-  color: #555;
-  font-size: 0.95rem;
-  line-height: 1.6;
+/* Status Badge */
+.job-status-badge {
+  position: absolute;
+  top: 75px;
+  right: 18px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
+/* Status Colors */
+.status-active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-inactive {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-closed {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+/* Job Description */
+.job-description {
+  padding: 0 18px 12px;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Requirements Section */
 .job-requirements {
-  padding: 0 1.5rem 1rem;
+  padding: 0 18px 12px;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 8px;
 }
 
+/* Requirement Tags */
 .requirement-tag {
-  background-color: #e0f7fa;
-  color: #00acc1;
-  padding: 0.4rem 0.8rem;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.8rem;
+  font-weight: 500;
 }
 
+/* More Requirements Indicator */
 .more-requirements {
   font-size: 0.8rem;
-  color: #777;
+  color: #6b7280;
+  align-self: center;
 }
 
+/* Footer Section */
 .job-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  border-top: 1px solid #eee;
+  padding: 12px 18px;
+  border-top: 1px solid #f3f4f6;
+  background-color: #ffffff;
 }
 
+/* Location and Salary */
 .job-location-salary {
-}
-
-.location,
-.salary {
-  font-size: 0.9rem;
-  color: #777;
+  display: flex;
+  flex-direction: column;
 }
 
 .location {
-  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 2px;
 }
 
+.salary {
+  font-size: 0.9rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Action Buttons */
 .manage-button,
 .apply-button {
-  background-color: #007bff;
-  color: white;
   border: none;
-  padding: 0.7rem 1.2rem;
+  padding: 8px 16px;
   border-radius: 8px;
   font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.manage-button:hover,
+.manage-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+.manage-button:hover {
+  background-color: #1d4ed8;
+}
+
+.apply-button {
+  background-color: #2563eb;
+  color: white;
+}
+
 .apply-button:hover {
-  background-color: #0056b3;
+  background-color: #1d4ed8;
 }
 
 .apply-button.applied {
-  background-color: #28a745; /* Green for applied */
+  background-color: #16a34a;
   cursor: not-allowed;
 }
 
-.apply-button.applied:hover {
-  background-color: #28a745;
-}
-
-/* Confetti animation styles (you might want to move this to a global CSS file) */
-@keyframes fall {
-  to {
-    transform: translateY(120vh);
+/* Confetti Animation */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
     opacity: 0;
   }
 }
 
 .confetti {
+  position: fixed;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  position: fixed;
   z-index: 1000;
-  animation: fall ease-in forwards;
+  animation: confetti-fall 3s ease-in forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .job-header {
+    padding: 14px 14px 6px;
+  }
+  
+  .job-description {
+    padding: 0 14px 10px;
+    -webkit-line-clamp: 2;
+  }
+  
+  .job-requirements {
+    padding: 0 14px 10px;
+  }
+  
+  .job-status-badge {
+    top: 14px;
+    right: 14px;
+    font-size: 0.7rem;
+  }
+  
+  .company-name-link {
+    padding-left: 48px;
+    font-size: 0.85rem;
+  }
+  
+  .manage-button,
+  .apply-button {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
 }
