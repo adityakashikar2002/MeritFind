@@ -1,0 +1,140 @@
+.job-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.company-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.company-info {
+}
+
+.job-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.2rem;
+}
+
+.company-name-link {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.company-name-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.job-description {
+  padding: 1.5rem;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.job-requirements {
+  padding: 0 1.5rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.requirement-tag {
+  background-color: #e0f7fa;
+  color: #00acc1;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+}
+
+.more-requirements {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.job-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.job-location-salary {
+}
+
+.location,
+.salary {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.location {
+  margin-bottom: 0.2rem;
+}
+
+.manage-button,
+.apply-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.manage-button:hover,
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+.apply-button.applied {
+  background-color: #28a745; /* Green for applied */
+  cursor: not-allowed;
+}
+
+.apply-button.applied:hover {
+  background-color: #28a745;
+}
+
+/* Confetti animation styles (you might want to move this to a global CSS file) */
+@keyframes fall {
+  to {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 1000;
+  animation: fall ease-in forwards;
+}

@@ -1,0 +1,106 @@
+.company-dashboard-container {
+    padding: 2rem;
+  }
+  
+  .dashboard-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #2c3e50; /* Dark blue */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .stats-cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  @media (min-width: 768px) {
+    .stats-cards-container{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px){
+      .stats-cards-container {
+          grid-template-columns: repeat(4, 1fr);
+      }
+  }
+  
+  
+  .recent-postings-container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-heading {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #34495e; /* Darker blue-gray */
+  }
+  
+  .postings-list {
+    space-y: 1.5rem;
+  }
+  
+  .posting-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 1.5rem;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out items horizontally */
+    align-items: flex-start; /* Align items to the start (top) */
+    margin-bottom: 0;
+  }
+  
+  .posting-item:last-child {
+    border-bottom: none;
+  }
+  
+  .job-info {
+    flex: 1; /* Allow job info to take up available space */
+    margin-right: 1rem; /* Add some margin to separate from status */
+  }
+  
+  .job-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+  
+  .job-details {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-date {
+    font-size: 0.8rem;
+    color: #95a5a6;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .status-badge.active {
+    background-color: #2ecc71; /* Green */
+    color: white;
+  }
+  
+  .status-badge.inactive {
+    background-color: #95a5a6; /* Gray */
+    color: white;
+  }
+  
+  .no-postings-message {
+    color: #95a5a6;
+    font-style: italic;
+  }
