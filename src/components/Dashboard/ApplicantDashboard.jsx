@@ -1,6 +1,8 @@
+// import React from 'react';
 // import { useAuth } from '../../context/AuthContext';
 // import { useJobs } from '../../context/JobContext';
 // import StatsCard from '../StatsCard';
+// import './ApplicantDashboard.css'; // Import CSS
 
 // const ApplicantDashboard = () => {
 //   const { user } = useAuth();
@@ -12,42 +14,42 @@
 //   const inactiveJobs = jobs.filter(job => job.status === 'inactive').length;
 
 //   return (
-//     <div>
-//       <h1 className="text-2xl font-bold mb-6">Welcome, {user.name}</h1>
-//       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-//         <StatsCard 
-//           title="Jobs Applied" 
-//           value={appliedJobs} 
-//           icon="📄" 
-//           color="primary" 
+//     <div className="applicant-dashboard-container">
+//       <h1 className="dashboard-heading">Welcome, {user.name}</h1>
+//       <div className="stats-cards-container">
+//         <StatsCard
+//           title="Jobs Applied"
+//           value={appliedJobs}
+//           icon="📄"
+//           color="--primary"
 //         />
-//         <StatsCard 
-//           title="Active Jobs" 
-//           value={activeJobs} 
-//           icon="✅" 
-//           color="secondary" 
+//         <StatsCard
+//           title="Active Jobs"
+//           value={activeJobs}
+//           icon="✅"
+//           color="--secondary"
 //         />
-//         <StatsCard 
-//           title="Inactive Jobs" 
-//           value={inactiveJobs} 
-//           icon="⏸️" 
-//           color="info" 
+//         <StatsCard
+//           title="Inactive Jobs"
+//           value={inactiveJobs}
+//           icon="⏸️"
+//           color="--info"
 //         />
 //       </div>
-//       <div className="bg-white p-6 rounded-lg shadow-md">
-//         <h2 className="text-xl font-semibold mb-4">Recent Applications</h2>
+//       <div className="recent-applications-container">
+//         <h2 className="section-heading">Recent Applications</h2>
 //         {applications.filter(app => app.applicantId === user.id).length > 0 ? (
-//           <div className="space-y-4">
+//           <div className="applications-list">
 //             {applications
 //               .filter(app => app.applicantId === user.id)
 //               .slice(0, 3)
 //               .map(app => {
 //                 const job = jobs.find(j => j.id === app.jobId);
 //                 return (
-//                   <div key={app.id} className="border-b pb-4 last:border-b-0">
-//                     <h3 className="font-medium">{job?.title || 'Job not found'}</h3>
-//                     <p className="text-sm text-gray-600">Applied on: {app.applicationDate}</p>
-//                     <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded mt-1">
+//                   <div key={app.id} className="application-item">
+//                     <h3 className="job-title">{job?.title || 'Job not found'}</h3>
+//                     <p className="application-date">Applied on: {app.applicationDate}</p>
+//                     <span className={`status-badge ${app.status}`}>
 //                       {app.status}
 //                     </span>
 //                   </div>
@@ -55,7 +57,7 @@
 //               })}
 //           </div>
 //         ) : (
-//           <p className="text-gray-600">You haven't applied to any jobs yet.</p>
+//           <p className="no-applications-message">You haven't applied to any jobs yet.</p>
 //         )}
 //       </div>
 //     </div>
@@ -65,11 +67,88 @@
 // export default ApplicantDashboard;
 
 
+// import React from 'react';
+// import { useAuth } from '../../context/AuthContext';
+// import { useJobs } from '../../context/JobContext';
+// import StatsCard from '../StatsCard';
+// import './ApplicantDashboard.css'; // Import updated CSS
+
+// const ApplicantDashboard = () => {
+//   const { user } = useAuth();
+//   const { jobs, applications } = useJobs();
+
+//   // Calculate stats
+//   const appliedJobs = applications.filter(app => app.applicantId === user.id).length;
+//   const activeJobs = jobs.filter(job => job.status === 'active').length;
+//   const inactiveJobs = jobs.filter(job => job.status === 'inactive').length;
+
+//   return (
+//     <div className="applicant-dashboard">
+//       <h1 className="dashboard-title">
+//         Hello, <span className="user-name">{user.name}</span> 👋
+//       </h1>
+//       <div className="stats-grid">
+//         <StatsCard
+//           title="Applied Jobs"
+//           value={appliedJobs}
+//           icon="📄"
+//           color="var(--primary-glow)"
+//           animation="scale-up"
+//         />
+//         <StatsCard
+//           title="Active Jobs"
+//           value={activeJobs}
+//           icon="✅"
+//           color="var(--success-glow)"
+//           animation="slide-left"
+//         />
+//         <StatsCard
+//           title="Inactive Jobs"
+//           value={inactiveJobs}
+//           icon="⏸️"
+//           color="var(--info-glow)"
+//           animation="slide-right"
+//         />
+//       </div>
+//       <div className="recent-applications">
+//         <h2 className="section-title">Recent Applications <span role="img" aria-label="sparkles">✨</span></h2>
+//         {applications.filter(app => app.applicantId === user.id).length > 0 ? (
+//           <ul className="application-list">
+//             {applications
+//               .filter(app => app.applicantId === user.id)
+//               .slice(0, 3)
+//               .map(app => {
+//                 const job = jobs.find(j => j.id === app.jobId);
+//                 return (
+//                   <li key={app.id} className="application-item fade-in">
+//                     <div className="job-details">
+//                       <h3 className="job-title">{job?.title || 'Job not found'}</h3>
+//                       <p className="apply-date">Applied on: {app.applicationDate}</p>
+//                     </div>
+//                     <span className={`status-badge ${app.status}`}>
+//                       {app.status.toUpperCase()}
+//                     </span>
+//                   </li>
+//                 );
+//               })}
+//           </ul>
+//         ) : (
+//           <p className="empty-message">You haven't applied to any jobs yet. <span role="img" aria-label="sad face">😞</span></p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ApplicantDashboard;
+
+// ApplicantDashboard.jsx
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useAuth } from '../../context/AuthContext';
 import { useJobs } from '../../context/JobContext';
 import StatsCard from '../StatsCard';
-import './ApplicantDashboard.css'; // Import CSS
+import './Dashboard.css';
 
 const ApplicantDashboard = () => {
   const { user } = useAuth();
@@ -80,53 +159,86 @@ const ApplicantDashboard = () => {
   const activeJobs = jobs.filter(job => job.status === 'active').length;
   const inactiveJobs = jobs.filter(job => job.status === 'inactive').length;
 
+  const recentApplications = applications
+    .filter(app => app.applicantId === user.id)
+    .slice(0, 3)
+    .map(app => {
+      const job = jobs.find(j => j.id === app.jobId);
+      return { ...app, jobTitle: job?.title || 'Job not found' };
+    });
+
   return (
     <div className="applicant-dashboard-container">
-      <h1 className="dashboard-heading">Welcome, {user.name}</h1>
+      <motion.h1 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="dashboard-heading"
+      >
+        Welcome back, <span className="text-gradient">{user.name}</span>
+      </motion.h1>
+      
       <div className="stats-cards-container">
         <StatsCard
           title="Jobs Applied"
           value={appliedJobs}
           icon="📄"
-          color="--primary"
+          color="primary"
         />
         <StatsCard
           title="Active Jobs"
           value={activeJobs}
           icon="✅"
-          color="--secondary"
+          color="secondary"
         />
         <StatsCard
           title="Inactive Jobs"
           value={inactiveJobs}
           icon="⏸️"
-          color="--info"
+          color="info"
         />
       </div>
-      <div className="recent-applications-container">
+
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+        className="dashboard-section recent-applications-container"
+      >
         <h2 className="section-heading">Recent Applications</h2>
-        {applications.filter(app => app.applicantId === user.id).length > 0 ? (
+        
+        {recentApplications.length > 0 ? (
           <div className="applications-list">
-            {applications
-              .filter(app => app.applicantId === user.id)
-              .slice(0, 3)
-              .map(app => {
-                const job = jobs.find(j => j.id === app.jobId);
-                return (
-                  <div key={app.id} className="application-item">
-                    <h3 className="job-title">{job?.title || 'Job not found'}</h3>
-                    <p className="application-date">Applied on: {app.applicationDate}</p>
-                    <span className={`status-badge ${app.status}`}>
-                      {app.status}
-                    </span>
-                  </div>
-                );
-              })}
+            {recentApplications.map((app, index) => (
+              <motion.div
+                key={app.id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.3 }}
+                className="application-item"
+              >
+                <div className="application-content">
+                  <h3 className="job-title">{app.jobTitle}</h3>
+                  <p className="application-date">
+                    Applied on: <span>{app.applicationDate}</span>
+                  </p>
+                </div>
+                <span className={`status-badge ${app.status}`}>
+                  {app.status}
+                </span>
+              </motion.div>
+            ))}
           </div>
         ) : (
-          <p className="no-applications-message">You haven't applied to any jobs yet.</p>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="no-applications-message"
+          >
+            You haven't applied to any jobs yet.
+          </motion.p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };

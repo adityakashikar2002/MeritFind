@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { JobProvider } from './context/JobContext';
-// import { GlobalStyles } from './styles/globalStyles';
 import Home from './pages/Home';
 import DashboardPage from './pages/DashboardPage';
 import JobsPage from './pages/JobsPage';
@@ -18,7 +17,6 @@ function App() {
     <Router>
       <AuthProvider>
         <JobProvider>
-          {/* <GlobalStyles /> */}
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow p-4">
