@@ -68,17 +68,17 @@
     background-size: contain;
   }
   
-  /* .dashboard-icon {
-    background-image: url('path/to/dashboard-icon.svg'); 
+  .dashboard-icon {
+    background-image: url('https://fakeimg.pl/600x400'); 
   }
   
   .jobs-icon {
-    background-image: url('path/to/jobs-icon.svg'); 
+    background-image: url('https://fakeimg.pl/600x400'); 
   }
   
   .profile-icon {
-    background-image: url('path/to/profile-icon.svg'); 
-  } */
+    background-image: url('https://fakeimg.pl/600x400'); 
+  }
   
   .navbar-user {
     display: flex;
@@ -113,7 +113,7 @@
     width: 18px;
     height: 18px;
     margin-right: 0.5rem;
-    /* background-image: url('path/to/logout-icon.svg'); */
+    background-image: url('https://fakeimg.pl/600x400');
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -155,13 +155,13 @@
     background-size: contain;
   }
   
-  /* .login-icon {
-    background-image: url('path/to/login-icon.svg'); 
+  .login-icon {
+    background-image: url('https://fakeimg.pl/600x400'); 
   }
   
   .register-icon {
-    background-image: url('path/to/register-icon.svg'); 
-  } */
+    background-image: url('https://fakeimg.pl/600x400'); 
+  }
   
   /* Add responsive styles if needed */
   @media (max-width: 768px) {

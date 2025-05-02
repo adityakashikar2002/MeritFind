@@ -22,29 +22,29 @@ const Navbar = () => {
           <div className="navbar-menu">
             <div className="navbar-links">
               <Link to="/dashboard" className="navbar-link">
-                <span className="link-icon dashboard-icon"></span>Dashboard
+                Dashboard
               </Link>
               <Link to="/jobs" className="navbar-link">
-                <span className="link-icon jobs-icon"></span>Jobs
+                Jobs
               </Link>
               <Link to="/profile" className="navbar-link">
-                <span className="link-icon profile-icon"></span>Profile
+                Profile
               </Link>
             </div>
             <div className="navbar-user">
               <span className="user-greeting">Hello, {user.name}</span>
               <button onClick={handleLogout} className="navbar-logout-button">
-                <span className="logout-icon"></span>Logout
+                Logout
               </button>
             </div>
           </div>
         ) : (
           <div className="navbar-auth">
             <Link to="/" className="navbar-login-button">
-              <span className="login-icon"></span>Login
+              Login
             </Link>
             <Link to="/register" className="navbar-register-button">
-              <span className="register-icon"></span>Register
+              Register
             </Link>
           </div>
         )}
