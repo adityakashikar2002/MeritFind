@@ -125,7 +125,7 @@
   
   .navbar-login-button,
   .navbar-register-button {
-    background-color: #fdd835; /* Bright yellow */
+    background-color: #ffe24f; /* Bright yellow */
     color: #333;
     border: none;
     padding: 0.75rem 1.5rem;
@@ -140,7 +140,7 @@
   
   .navbar-login-button:hover,
   .navbar-register-button:hover {
-    background-color: #fbc02d; /* Darker yellow */
+    background-color: #e9ef26; /* Darker yellow */
     transform: translateY(-2px);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
